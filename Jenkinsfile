@@ -13,8 +13,8 @@ pipeline {
             }
         }
         stage('Test') {
-            timeout(time: 15, unit: 'SECONDS') {
-                steps {
+            steps {
+                timeout(time: 15, unit: 'SECONDS') {
                     sh '''
                         ./run-tests
                         sleep 10
