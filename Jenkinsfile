@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    options {
+        timeout(time: 5, unit: 'SECONDS')
+    }
     stages {
         stage('Build') {
             steps {
@@ -13,7 +16,7 @@ pipeline {
             steps {
                 sh '''
                     ./run-tests
-                    false
+                    sleep 10
                 '''
             }
         }
