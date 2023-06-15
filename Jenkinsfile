@@ -13,11 +13,13 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                sh '''
-                    ./run-tests
-                    sleep 10
-                '''
+            timeout(time: 15, unit: 'SECONDS') {
+                steps {
+                    sh '''
+                        ./run-tests
+                        sleep 10
+                    '''
+                }
             }
         }
     }
